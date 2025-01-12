@@ -1,0 +1,3 @@
+#!/bin/bash
+
+scrcpy -s R5CT44C6X5Y --window-width=540 --window-height=1170
