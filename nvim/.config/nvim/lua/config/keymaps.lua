@@ -26,6 +26,7 @@ vim.keymap.set("n", "<Leader>tr", vim.fn.ToggleRealativeNumbers, { desc = "[T]og
 vim.keymap.set("n", "<Leader>tq", toggle_quickfix, { desc = "[T]oggle [Q]uickfix Window" })
 vim.keymap.set("n", "<Leader>tt", "<CMD>Floaterminal<CR>", { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "<Leader>te", "<CMD>Neotree toggle <CR>", { desc = "[T]oggle [E]xplorer" })
+vim.keymap.set("n", "<Leader>tc", "<CMD>ColorizerToggle <CR>", { desc = "[T]oggle [C]olorizer" })
 
 -- vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { desc = "v[ [R] ]ve[n]ame Symbol" })
 vim.keymap.set("n", "<Leader>la", "<CMD>Alpha<CR>", { desc = "[L]aunch [A]lpha" })

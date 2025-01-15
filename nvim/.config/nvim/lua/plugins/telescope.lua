@@ -39,7 +39,8 @@ return {
             -- theme = "ivy",
             file_ignore_patterns = { "node_modules", ".git", ".venv" },
             hidden = true,
-            -- previewer = true,
+            follow = true,
+            previewer = true,
           },
           buffers = {
             initial_mode = "normal",

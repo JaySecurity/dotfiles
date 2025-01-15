@@ -17,4 +17,4 @@
   function: (identifier) @function_name (#eq? @function_name "createGlobalStyle")
   arguments: ((template_string) @injection.content)
   (#set! injection.language "css")
-))
+)
