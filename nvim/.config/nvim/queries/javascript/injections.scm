@@ -16,5 +16,6 @@
 (call_expression
   function: (identifier) @function_name (#eq? @function_name "createGlobalStyle")
   arguments: ((template_string) @injection.content)
+  (#offset! @injection.content 0 1 0 -1)
   (#set! injection.language "css")
 )

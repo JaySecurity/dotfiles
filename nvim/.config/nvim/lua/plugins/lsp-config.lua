@@ -67,7 +67,6 @@ return {
             },
           },
         },
-        -- stylua = {},
         omnisharp_mono = {},
         pbls = {},
         pylsp = {
@@ -138,6 +137,18 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
+          local diagnostics_active = true
+          local function toggle_diagnostics()
+            diagnostics_active = not diagnostics_active
+            if diagnostics_active then
+              vim.diagnostic.show()
+              vim.notify("Diagnostics Enabled")
+            else
+              vim.diagnostic.hide()
+              vim.notify("Diagnostics Disabled")
+            end
+          end
+
           local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
@@ -153,6 +164,7 @@ return {
           -- map('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat')
           map("K", vim.lsp.buf.hover, "Hover Documentation")
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          map("<leader>td", toggle_diagnostics, "[T]oggle [D]iagnostics")
 
           map("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
           map("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
@@ -201,6 +213,16 @@ return {
           --     vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
         end,
       })
+
+      -- Change diagnostic symbols in the sign column (gutter)
+      -- if vim.g.have_nerd_font then
+      --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+      --   local diagnostic_signs = {}
+      --   for type, icon in pairs(signs) do
+      --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
+      --   end
+      --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
+      -- end
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())

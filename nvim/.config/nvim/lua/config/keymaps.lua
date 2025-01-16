@@ -22,18 +22,23 @@ local opts = { noremap = true, silent = true }
 
 -- Normal Mode
 
+-- Toggles
 vim.keymap.set("n", "<Leader>tr", vim.fn.ToggleRealativeNumbers, { desc = "[T]oggle [R]elative Numbers" })
 vim.keymap.set("n", "<Leader>tq", toggle_quickfix, { desc = "[T]oggle [Q]uickfix Window" })
 vim.keymap.set("n", "<Leader>tt", "<CMD>Floaterminal<CR>", { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "<Leader>te", "<CMD>Neotree toggle <CR>", { desc = "[T]oggle [E]xplorer" })
 vim.keymap.set("n", "<Leader>tc", "<CMD>ColorizerToggle <CR>", { desc = "[T]oggle [C]olorizer" })
+vim.keymap.set("n", "<Leader>tC", "<CMD>CloakToggle <CR>", { desc = "[T]oggle [C]loak" })
 
--- vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { desc = "v[ [R] ]ve[n]ame Symbol" })
+-- Launchers
 vim.keymap.set("n", "<Leader>la", "<CMD>Alpha<CR>", { desc = "[L]aunch [A]lpha" })
 vim.keymap.set("n", "<Leader>ll", "<CMD>Lazy<CR>", { desc = "[L]aunch [L]azy" })
+vim.keymap.set("n", "<Leader>lm", "<CMD>Mason<CR>", { desc = "[L]aunch [M]ason" })
+
 vim.keymap.set("n", "<Leader><Leader>x", "<CMD>source %<CR>", { desc = "Source File" })
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<Leader>x", ":lua<CR>")
+
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Allow moving the cursor through wrapped lines with j, k

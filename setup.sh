@@ -20,7 +20,7 @@ makepkg -si
 yay -Y --gendb
 
 cd
-yay -S appimagelauncher gnome-thumbnailers-git gnome-thumbnailers-git gnome-thumbnailers-git gst-libav i3exit kvantum-theme-libadwaita-git libjpeg-turbo libpng librecad-git libtiff libwebp poppler-glib slack-desktop telegram-desktop-bin ttf-dejavu-nerd ttf-dejavu-nerd ttf-firacode-nerd ttf-firacode-nerd ttf-liberation ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-noto-nerd ttf-noto-nerd tumbler-extra-thumbnailers tumbler-extra-thumbnailers tumbler-folder-thumbnailer tumbler-folder-thumbnailer xcursor-maia-git xcursor-neo-alien-dark xcursor-themes brave-bin devpod mongodb-compass mongodb-tools pwvucontrol tumbler-folder-thumbnailer vlc-plugin-pipewire --noconfirm
+yay -S appimagelauncher gnome-thumbnailers-git gnome-thumbnailers-git gnome-thumbnailers-git gst-libav i3exit kvantum-theme-libadwaita-git libjpeg-turbo libpng librecad-git libtiff libwebp poppler-glib slack-desktop telegram-desktop-bin ttf-dejavu-nerd ttf-dejavu-nerd ttf-firacode-nerd ttf-firacode-nerd ttf-liberation ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-noto-nerd ttf-noto-nerd tumbler-extra-thumbnailers tumbler-extra-thumbnailers tumbler-folder-thumbnailer xcursor-maia-git xcursor-neo-alien-dark xcursor-themes brave-bin devpod mongodb-compass mongodb-tools pwvucontrol vlc-plugin-pipewire --noconfirm
 
 systemctl --user restart pipewire pipewire-pulse wireplumber
 systemctl --user enable pipewire pipewire-pulse wireplumber

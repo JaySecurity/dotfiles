@@ -57,6 +57,7 @@ return {
             abbr = 50, -- actual suggestion item
           },
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          symbol_map = { Codeium = "" },
           show_labelDetails = true, -- show labelDetails in menu. Disabled by default
 
           -- The function below will be called before any actual modifications from lspkind
@@ -97,7 +98,7 @@ return {
           -- behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        -- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
         -- Think of <c-l> as moving to the right of your snippet expansion. So if you have a snippet that's like:
         --  function $name($args)
@@ -119,6 +120,7 @@ return {
       },
       sources = {
         { name = "lazydev", group_index = 0 },
+        -- { name = "codeium", group_index = 0 },
         { name = "nvim_lsp_signature_help", group_index = 1 },
         { name = "luasnip", max_item_count = 5, group_index = 1 },
         { name = "nvim_lsp", max_item_count = 20, group_index = 1 },
