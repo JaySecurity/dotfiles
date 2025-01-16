@@ -51,8 +51,8 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
-vim.opt.foldlevel = 99
-vim.opt.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldenable = true
 
 vim.filetype.add({
   extension = {

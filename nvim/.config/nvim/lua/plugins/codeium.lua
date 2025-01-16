@@ -6,7 +6,7 @@ return {
   },
   config = function()
     require("codeium").setup({
-      enable_cmp_source = false,
+      enable_cmp_source = true,
       virtual_text = {
         enabled = true,
 
@@ -23,7 +23,7 @@ return {
         -- Whether to enable virtual text of not for filetypes not specifically listed above.
         default_filetype_enabled = true,
         -- How long to wait (in ms) before requesting completions after typing stops.
-        idle_delay = 50,
+        idle_delay = 80,
         -- Priority of the virtual text. This usually ensures that the completions appear on top of
         -- other plugins that also add virtual text, such as LSP inlay hints, but can be modified if
         -- desired.
@@ -36,7 +36,7 @@ return {
         -- Key bindings for managing completions in virtual text mode.
         key_bindings = {
           -- Accept the current completion.
-          accept = "<Tab>",
+          accept = "<S-Tab>",
           -- Accept the next word.
           accept_word = false,
           -- Accept the next line.
@@ -47,9 +47,6 @@ return {
           next = "<C-j>",
           -- Cycle to the previous completion.
           prev = "<C-k>",
-
-          -- Toggle virtual text
-          toggle = "<C-t>",
         },
       },
     })

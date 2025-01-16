@@ -1,8 +1,7 @@
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {'nvim-treesitter/playground'},
+    dependencies = { "nvim-treesitter/playground" },
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -49,6 +48,11 @@ return {
           additional_vim_regex_highlighting = false,
         },
       })
+      vim.o.foldmethod = "expr"
+      vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.o.foldlevel = 99
+      vim.o.foldenable = true
+      -- vim.o.foldcolumn = "1"
     end,
   },
 }
