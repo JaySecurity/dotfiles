@@ -1,6 +1,7 @@
 # Set Shell
 
 export SHELL=/usr/bin/zsh
+export DESKTOP_SESSION=gnome
 
 # Theme Settings
 
@@ -17,7 +18,10 @@ export TERMINAL=/usr/bin/kitty
 export GOPATH=/home/jason/go
 export GOBIN=/home/jason/go/bin
 
-export DESKTOP_SESSION=gnome
+export OLLAMA_API_BASE=http://127.0.0.1:11434 
+export AIDER_OLLAMA_API_KEY=""
+export AIDER_MODEL="ollama_chat/llama3:8b"
+export AIDER_EDITOR=nvim
 
 
 if [ -z "$SSH_AUTH_SOCK" ]; then

@@ -42,14 +42,16 @@ if ($status eq 'Discharging') {
 	$full_text .= ' DIS';
 } elsif ($status eq 'Charging') {
 	$full_text .= ' CHR';
-} elsif ($status eq 'Unknown') {
+} else {
+  print "TEST\n";
 	open (AC_ADAPTER, "acpi -a |") or die;
 	$ac_adapt = <AC_ADAPTER>;
 	close(AC_ADAPTER);
 
+  print "AC $ac_adapt\n";
 	if ($ac_adapt =~ /: ([\w-]+)/) {
 		$ac_adapt = $1;
-
+    print "AC $ac_adapt\n";
 		if ($ac_adapt eq 'on-line') {
 			$full_text .= ' CHR';
 		} elsif ($ac_adapt eq 'off-line') {
@@ -65,8 +67,8 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 }
 
 # print text
-print "$full_text\n";
-print "$short_text\n";
+print " $full_text\n";
+print " $short_text\n";
 
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {

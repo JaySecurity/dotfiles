@@ -138,14 +138,26 @@ return {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
           local diagnostics_active = true
+          local notify_id = nil
+          local notify = require("notify")
           local function toggle_diagnostics()
             diagnostics_active = not diagnostics_active
             if diagnostics_active then
               vim.diagnostic.show()
-              vim.notify("Diagnostics Enabled")
+              if notify_id then
+                notify.dismiss({ pending = false, silent = true })
+              end
+              vim.notify("Diagnostics Enabled", nil, { timeout = 3000 })
             else
               vim.diagnostic.hide()
-              vim.notify("Diagnostics Disabled")
+              notify_id = notify("Diagnostics Disabled", vim.log.levels.ERROR, {
+                title = "Warning",
+                timeout = false, -- Persistent notification
+                keep = true,
+                on_close = function()
+                  notify_id = nil -- Clear the ID when the notification is closed
+                end,
+              })
             end
           end
 
