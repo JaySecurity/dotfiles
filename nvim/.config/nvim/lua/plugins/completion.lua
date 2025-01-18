@@ -38,12 +38,16 @@ return {
     ---@diagnostic disable-next-line
     cmp.setup({
       enabled = function()
-        buftype = vim.api.nvim_buf_get_option(0, "buftype")
+        local buftype = vim.api.nvim_buf_get_option(0, "buftype")
         if buftype == "prompt" then
           return false
         end
         return true
       end,
+      experimental = {
+        -- See also `toggle_ghost_text()` below.
+        ghost_text = true,
+      },
       completion = { completeopt = "menu,menuone,noinsert" },
       -- preselect = cmp.PreselectMode.None,
       formatting = {
@@ -130,6 +134,39 @@ return {
         { name = "buffer", keyword_length = 2, max_item_count = 5, group_index = 2 },
       },
     })
+
+    local toggle_ghost_text = function()
+      local config = require("cmp.config")
+      local current = config.get().experimental.ghost_text
+      config.set_global({
+        experimental = {
+          ghost_text = not current,
+        },
+      })
+      vim.notify("Ghost Text " .. (current and "Disabled" or "Enabled"))
+    end
+    local function toggle_autocomplete()
+      local active = true
+      -- local cmp = require("cmp")
+      local sources = cmp.get_config().sources
+      if active then
+        for i = #sources, 1, -1 do
+          if sources[i].name == "codeium" then
+            table.remove(sources, i)
+          end
+        end
+        active = false
+      else
+        table.insert(sources, { name = "codeium" })
+        active = true
+      end
+      cmp.setup({ sources = sources })
+      vim.notify("Autocomplete " .. (active and "Enabled" or "Disabled"))
+    end
+
+    vim.keymap.set("n", "<leader>ta", toggle_autocomplete, { desc = "[T]oggle [A]utocomplete", silent = true })
+    vim.keymap.set("n", "<leader>tg", toggle_ghost_text, { desc = "[T]oggle [G]host Text", silent = true })
+    vim.keymap.set("i", "<C-t>", toggle_ghost_text, { desc = "[T]oggle [G]host Text", silent = true })
 
     -- cmp.setup.cmdline(":", {
     --   mapping = cmp.mapping.preset.cmdline(),

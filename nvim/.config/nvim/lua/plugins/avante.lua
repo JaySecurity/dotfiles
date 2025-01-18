@@ -8,16 +8,22 @@ return {
     -- add any opts here
     provider = "ollama",
     vendors = {
-      deepseek = {
+      ollama = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "127.0.0.1:11434/v1",
+        endpoint = "http://127.0.0.1:11434/v1",
+        model = "nomic-embed-text:latest",
+      },
+      deepseek_local = {
+        __inherited_from = "openai",
+        api_key_name = "",
+        endpoint = "http://127.0.0.1:11434/v1",
         model = "deepseek-coder-v2:latest",
       },
-      llama3 = {
+      llama3_local = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "127.0.0.1:11434/v1",
+        endpoint = "http://127.0.0.1:11434/v1",
         model = "llama3:8b",
       },
     },

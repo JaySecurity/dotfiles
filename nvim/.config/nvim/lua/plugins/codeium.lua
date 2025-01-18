@@ -8,7 +8,7 @@ return {
     require("codeium").setup({
       enable_cmp_source = true,
       virtual_text = {
-        enabled = true,
+        enabled = false,
 
         -- These are the defaults
 

@@ -5,7 +5,7 @@
 
 set $mod Mod4
 
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 0
 default_border none
 default_floating_border pixel 2
 workspace_auto_back_and_forth no
@@ -212,9 +212,10 @@ bar {
 
 
 # Autostart
-# exec_always --no-startup-id xrandr --output eDP-1 --scale .8x.8 
+exec_always --no-startup-id xrandr --output eDP-1 --scale .9x.9 
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
+exec --no-startup-id cbatticon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id killall picom; sleep 1;  picom -b
 exec --no-startup-id numlockx
