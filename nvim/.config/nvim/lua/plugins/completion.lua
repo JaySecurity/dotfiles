@@ -25,7 +25,15 @@ return {
     },
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lua",
-    -- "windwp/nvim-autopairs",
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = true,
+      opts = {
+        check_ts = true,
+        enable_check_bracket_line = false,
+      },
+    },
     "onsails/lspkind-nvim",
     -- { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
   },
@@ -33,7 +41,11 @@ return {
     local cmp = require("cmp")
     local lsp_kind = require("lspkind")
     local luasnip = require("luasnip")
-    luasnip.config.setup({})
+    luasnip.config.setup({
+      history = true,
+      updateevents = "TextChanged,TextChangedI",
+      override_builtin = true,
+    })
     lsp_kind.init()
     ---@diagnostic disable-next-line
     cmp.setup({
@@ -177,10 +189,10 @@ return {
     --   }),
     --   matching = { disallow_symbol_nonprefix_matching = false },
     -- })
-    -- local presentAutopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-    -- if not presentAutopairs then
-    --   return
-    -- end
-    -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+    local presentAutopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+    if not presentAutopairs then
+      return
+    end
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
   end,
 }
