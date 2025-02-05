@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH:$GOBIN:$PATH
+export PATH=$HOME/.local/bin:$HOME/.local/share:$HOME/.config/scripts:$HOME/go/bin:/usr/local/bin:$PATH
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Path to your oh-my-zsh installation.
+export ZSH="/home/jason/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
+# load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="gnzh-custom"
@@ -23,30 +23,30 @@ ZSH_THEME="gnzh-custom"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="false"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -70,12 +70,14 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker fzf fnm ollama)
+
+
+plugins=(docker git kubectl fnm direnv fzf ollama)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+eval "$(dircolors ~/.dir_colors)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -88,29 +90,47 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='nvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="nvim"
+alias evim='NVIM_APPNAME=evim nvim'
+alias lsl="ls -la | more"
+alias mongoC="mongo 192.168.2.2/ -u jason -p password --authenticationDatabase admin"
+alias ganache="ganache-cli -m 'come input math question labor suit report funny unlock range conduct stadium'"
+alias e='function f(){echo "$1";}; f'
+alias ee='function f(){echo "$1"|base64;}; f'
+alias ed='function f(){echo "$1"|base64 --decode;}; f'
+alias node16='nvm use node 16'
+alias node18='nvm use node 18'
+alias node20='nvm use node 20'
+alias scrcpy="~/.config/scripts/scrcpy2"
+alias runaider="docker run -it --user $(id -u):$(id -g) --network host --volume $(pwd):/app -e OLLAMA_API_BASE=http://127.0.0.1:11434 paulgauthier/aider-full:latest"
+# alias npm=pnpm
+# alias npx='pnpm exec'
 
-alias evim="NVIM_APPNAME=evim nvim"
 
-# fnm
-FNM_PATH="/home/jason/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/jason/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
+# source <(kubectl completion zsh)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# Automatically switch NVM version if an .nvmrc file exists in the directory
+# cd() {
+#     builtin cd "$@"
+#     if [[ -f .nvmrc && -r .nvmrc ]]; then
+#         nvm use
+#     fi
+# }
 
 # pnpm
 export PNPM_HOME="/home/jason/.local/share/pnpm"
@@ -120,7 +140,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-. "$HOME/.local/bin/env"
+# fnm
+FNM_PATH="/home/jason/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/jason/.local/share/fnm:$PATH"
+  # eval "`fnm env`"
+  # eval "$(fnm env --use-on-cd )"
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/jason/.lmstudio/bin"
+export TIMEWARRIORDB=/home/jason/Nextcloud/timewarrior/data

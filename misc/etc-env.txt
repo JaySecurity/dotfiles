@@ -1,0 +1,16 @@
+ cat /etc/environment 
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+#
+export QT_QPA_PLATFORMTHEME=qt5ct
+export GTK_THEME=Adapta-Nokto-Eta-Maia
+export GTK2_RC_FILES=$HOME/.gtkrc-2.0
+export EDITOR=/usr/bin/nvim
+export BROWSER=/usr/bin/brave
+export TERMINAL=/usr/bin/alacritty
+export DESKTOP_SESSION=gnome
+export WINDOW_MANAGER=i3
+export HSA_OVERRIDE_GFX_VERSION="10.3.0"

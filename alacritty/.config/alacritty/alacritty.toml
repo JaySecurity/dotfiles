@@ -1,0 +1,13 @@
+[env]
+TERM = "xterm-256color"
+
+[font.normal]
+family = "Terminess Nerd Font Mono"
+style = "Regular"
+
+[window]
+opacity = 0.97
+
+[window.padding]
+x = 10
+y = 10

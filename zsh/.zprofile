@@ -1,28 +1,24 @@
-# Set Shell
-#
-# export SHELL=/usr/bin/zsh
-# export DESKTOP_SESSION=gnome
-#
-# # Theme Settings
-#
-# export QT_STYLE_OVERIDE=GTK+
-# export QT_QPA_PLATFORMTHEME=qt6ct
-#
-# # Default Apps
-#
-# export EDITOR=/usr/bin/nvim
-# export BROWSER=/usr/bin/brave
-# export TERMINAL=/usr/bin/kitty
-#
-#
-# export GOPATH=/home/jason/go
-# export GOBIN=/home/jason/go/bin
-#
-# export OLLAMA_API_BASE=http://127.0.0.1:11434 
-# export AIDER_OLLAMA_API_KEY=""
-# export AIDER_MODEL="ollama_chat/llama3:8b"
-# export AIDER_EDITOR=nvim
-#
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=kvantum
+export QT_DIR=$HOME/Qt
+export GTK_THEME=Adapta-Nokto-Eta-Maia
+export GTK2_RC_FILES=$HOME/.config/gtkrc-2.0
+
+export EDITOR=/usr/bin/nvim
+export BROWSER=/usr/bin/brave
+export TERMINAL=/usr/bin/kitty
+
+export AWS_PROFILE=Dev-Under
+export GOPATH=$HOME/go
+export UNITY_PATH=$HOME/Unity/Hub
+export HSA_OVERRIDE_GFX_VERSION="10.3.0"
+export OLLAMA_API_BASE=http://127.0.0.1:11434
+# export OLLAMA_DATA_DIR=/Storage/ollama/
+export OLLAMA_MODELS=/Storage/ollama/models
+export AIDER_MODEL=ollama_chat/deepseek-r1:14b
+export OPENAI_API_KEY=""
+
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.local/share:$HOME/.config/scripts:/usr/local/bin:$HOME/go/bin
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
     # Check for a currently running instance of the agent
@@ -36,3 +32,5 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     ssh-add $HOME/.ssh/github
 fi
 
+
+export MM_SEED="come input math question labor suit report funny unlock range conduct stadium"

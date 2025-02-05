@@ -25,7 +25,8 @@ local opts = { noremap = true, silent = true }
 -- Toggles
 vim.keymap.set("n", "<Leader>tr", vim.fn.ToggleRealativeNumbers, { desc = "[T]oggle [R]elative Numbers" })
 vim.keymap.set("n", "<Leader>tq", toggle_quickfix, { desc = "[T]oggle [Q]uickfix Window" })
-vim.keymap.set("n", "<Leader>tt", "<CMD>Floaterminal<CR>", { desc = "[T]oggle [T]erminal" })
+vim.keymap.set("n", "<Leader>tt", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
+vim.keymap.set({ "n", "t", "i" }, "<C-`>", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "<Leader>te", "<CMD>Neotree toggle <CR>", { desc = "[T]oggle [E]xplorer" })
 vim.keymap.set("n", "<Leader>tc", "<CMD>ColorizerToggle <CR>", { desc = "[T]oggle [C]olorizer" })
 vim.keymap.set("n", "<Leader>tC", "<CMD>CloakToggle <CR>", { desc = "[T]oggle [C]loak" })
@@ -63,8 +64,8 @@ vim.keymap.set("n", "N", "Nzz", opts)
 -- vim.keymap.set("n", "<Leader>bN", "<CMD>enew<CR>", { desc = "[B]uffer [N]ew" })
 vim.keymap.set("n", "<Leader>bN", NewBufVertical, { desc = "[B]uffer [N]ew Vertical" })
 vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "[B]uffer [D]elete" })
-vim.keymap.set("n", "<Tab>", "<CMD>bNext<CR>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "Previous Buffer" })
+-- vim.keymap.set("n", "<Tab>", "<CMD>bNext<CR>", { desc = "Next Buffer" })
+-- vim.keymap.set("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "Previous Buffer" })
 
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)

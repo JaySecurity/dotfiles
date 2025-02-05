@@ -7,7 +7,7 @@ return {
     config = function()
       require("mini.surround").setup()
       require("mini.ai").setup()
-      require("mini.pairs").setup()
+      -- require("mini.pairs").setup()
     end,
   },
   -- {    -- autoclose tags
@@ -53,5 +53,11 @@ return {
       { "<C-v>", mode = "i" },
     },
     name = "registers",
+  },
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
   },
 }

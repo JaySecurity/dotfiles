@@ -1,0 +1,15 @@
+[user]
+	email = jasonnicholls1981@gmail.com
+	name = Jason Nicholls
+[core]
+	excludesfile = /home/jason/.gitignore_global
+	editor = /usr/bin/nvim
+[credential]
+	helper = store
+	credentialStore = cache
+[init]
+	defaultBranch = master
+
+
+[includeIf "gitdir:/home/jason/Code/redN/"]
+	path = /home/jason/Code/redN/.gitconfig-work

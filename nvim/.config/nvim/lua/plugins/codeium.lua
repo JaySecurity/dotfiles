@@ -9,9 +9,6 @@ return {
       enable_cmp_source = true,
       virtual_text = {
         enabled = true,
-
-        -- These are the defaults
-
         -- Set to true if you never want completions to be shown automatically.
         manual = false,
         -- A mapping of filetype to true or false, to enable virtual text.
@@ -19,6 +16,8 @@ return {
           markdown = false,
           yaml = false,
           gitcommit = false,
+          typr = false,
+          oil = false,
         },
         -- Whether to enable virtual text of not for filetypes not specifically listed above.
         default_filetype_enabled = true,
