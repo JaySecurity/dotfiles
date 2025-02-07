@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH:$GOBIN:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH:$GOBIN:$HOME/.cargo/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -42,6 +42,10 @@ ZSH_THEME="gnzh-custom"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
+
+# Ignore Corrections
+alias kitten="nocorrect kitten"
+alias ssh="nocorrect ssh"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.

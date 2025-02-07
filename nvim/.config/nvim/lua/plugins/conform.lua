@@ -25,6 +25,7 @@ return {
       go = { "gofumpt", "goimports", "golines" },
       -- proto = { "buf" },
       python = { "ruff" },
+      scm = { "prettier" },
     },
     -- Set default options
     default_format_opts = {

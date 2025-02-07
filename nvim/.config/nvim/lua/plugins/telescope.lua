@@ -37,6 +37,7 @@ return {
         pickers = {
           find_files = {
             file_ignore_patterns = { "node_modules", ".git", ".venv" },
+            no_ignore = true,
             hidden = true,
             follow = true,
             previewer = true,

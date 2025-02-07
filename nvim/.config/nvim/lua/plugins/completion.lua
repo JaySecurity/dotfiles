@@ -144,6 +144,7 @@ return {
         { name = "vim-dadbod-completion", group_index = 1 },
         { name = "path", group_index = 2 },
         { name = "buffer", keyword_length = 2, max_item_count = 5, group_index = 2 },
+        { name = "vim-dadbod-completion", group_index = 2 },
       },
     })
 

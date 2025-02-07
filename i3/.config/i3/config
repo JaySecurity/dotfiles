@@ -215,6 +215,7 @@ bar {
 exec_always --no-startup-id xrandr --output eDP-1 --scale .9x.9 
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
+exec --no-startup-id pamac-tray
 exec --no-startup-id cbatticon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id killall picom; sleep 1;  picom -b
@@ -229,8 +230,10 @@ bindsym $mod+w exec ~/.config/scripts/browser.sh
 bindsym Print exec ~/.config/scripts/screenshot.sh
 bindsym $mod+Print exec xfce4-screenshooter -s ~/Pictures/Screenshots/
 
+# Custom Window Rules
+for_window [class="Pamac-manager"] floating enable
 
-
+# General Window Rules
 
 for_window [window_role="About"] floating enable
 for_window [window_role="Organizer"] floating enable
