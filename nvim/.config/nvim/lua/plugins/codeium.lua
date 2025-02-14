@@ -7,8 +7,9 @@ return {
   config = function()
     require("codeium").setup({
       enable_cmp_source = true,
+      enable_keys = true,
       virtual_text = {
-        enabled = true,
+        enabled = false,
         -- Set to true if you never want completions to be shown automatically.
         manual = false,
         -- A mapping of filetype to true or false, to enable virtual text.
@@ -35,7 +36,7 @@ return {
         -- Key bindings for managing completions in virtual text mode.
         key_bindings = {
           -- Accept the current completion.
-          accept = "<S-Tab>",
+          -- accept = "<S-Tab>",
           -- Accept the next word.
           accept_word = false,
           -- Accept the next line.
@@ -43,9 +44,9 @@ return {
           -- Clear the virtual text.
           clear = false,
           -- Cycle to the next completion.
-          next = "<C-j>",
+          -- next = "<C-j>",
           -- Cycle to the previous completion.
-          prev = "<C-k>",
+          -- prev = "<C-k>",
         },
       },
     })

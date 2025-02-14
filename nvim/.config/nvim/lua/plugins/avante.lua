@@ -13,23 +13,23 @@ return {
         endpoint = "127.0.0.1:11434/v1",
         model = "deepseek-r1:14b",
       },
-      deepseek = {
+      deepseekCoderV2 = {
         __inherited_from = "openai",
         api_key_name = "",
         endpoint = "127.0.0.1:11434/v1",
-        model = "deepseek-coder-v2:latest",
+        model = "deepseek-coder-v2:16b",
       },
-      qwen = {
+      qwenCoder14b = {
         __inherited_from = "openai",
         api_key_name = "",
         endpoint = "127.0.0.1:11434/v1",
-        model = "qwen1.5-coder",
+        model = "qwen2.5-coder:14b",
       },
       llama3 = {
         __inherited_from = "openai",
         api_key_name = "",
         endpoint = "127.0.0.1:11434/v1",
-        model = "llama3:8b",
+        model = "llama3",
       },
     },
   },

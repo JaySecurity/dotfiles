@@ -1,1 +1,1 @@
-vim.cmd("colorscheme dark_flat")
+vim.cmd("colorscheme tokyodark")

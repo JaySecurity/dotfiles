@@ -30,11 +30,13 @@ vim.keymap.set({ "n", "t", "i" }, "<C-`>", "<CMD>ToggleTerm<CR>", { desc = "[T]o
 vim.keymap.set("n", "<Leader>te", "<CMD>Neotree toggle <CR>", { desc = "[T]oggle [E]xplorer" })
 vim.keymap.set("n", "<Leader>tc", "<CMD>ColorizerToggle <CR>", { desc = "[T]oggle [C]olorizer" })
 vim.keymap.set("n", "<Leader>tC", "<CMD>CloakToggle <CR>", { desc = "[T]oggle [C]loak" })
+vim.keymap.set("n", "<Leader>tdb", "<CMD>DBUIToggle <CR>", { desc = "[T]oggle [D]ad[B]od UI" })
 
 -- Launchers
 vim.keymap.set("n", "<Leader>la", "<CMD>Alpha<CR>", { desc = "[L]aunch [A]lpha" })
 vim.keymap.set("n", "<Leader>ll", "<CMD>Lazy<CR>", { desc = "[L]aunch [L]azy" })
 vim.keymap.set("n", "<Leader>lm", "<CMD>Mason<CR>", { desc = "[L]aunch [M]ason" })
+vim.keymap.set("n", "<Leader>ldb", "<CMD>DBUI<CR>", { desc = "[L]aunch [D]ad[B]od UI" })
 
 vim.keymap.set("n", "<Leader><Leader>x", "<CMD>source %<CR>", { desc = "Source File" })
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
@@ -102,3 +104,5 @@ vim.keymap.set("v", ">", ">gv", opts)
 
 -- vim.keymap.set("i", "jkl", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set({ "v", "i" }, "jk", "<Esc>", { desc = "Exit Insert Mode" })
+vim.keymap.set({ "i", "n", "v" }, "<C-s>", "<CMD>w<CR>", { desc = "Save File" })
+vim.keymap.set({ "i", "n", "v" }, "<C-M-s>", "<CMD>wa<CR>", { desc = "Save All Files" })

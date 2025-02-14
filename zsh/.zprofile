@@ -1,8 +1,8 @@
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_STYLE_OVERRIDE=kvantum
-export QT_DIR=$HOME/Qt
-export GTK_THEME=Adapta-Nokto-Eta-Maia
-export GTK2_RC_FILES=$HOME/.config/gtkrc-2.0
+# export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_STYLE_OVERRIDE=GTK+
+# export QT_DIR=$HOME/Qt
+# export GTK2_RC_FILES=$HOME/.config/gtkrc-2.0
+export GTK_THEME=Adwaita-dark
 
 export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/brave

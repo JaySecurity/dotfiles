@@ -1,4 +1,4 @@
--- oions are automatically loaded before lazy.nvim startup
+-- options are automatically loaded before lazy.nvim startup
 -- Default oions that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/oions.lua
 -- Add any additional oions here
 vim.g.mapleader = " "

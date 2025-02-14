@@ -273,6 +273,7 @@ workspace 4 output HDMI-A-0
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id tmux start-server \; run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
 exec_always --no-startup-id killall picom; sleep 1;  picom -b
 exec_always --no-startup-id nitrogen --restore;
 exec --no-startup-id nm-applet
@@ -285,7 +286,7 @@ exec --no-startup-id nextcloud
 exec_always --no-startup-id $HOME/.config/scripts/i3bar-toggle.sh
 exec --no-startup-id $HOME/.config/scripts/mouse.sh
 exec --no-startup-id clipit -d
-# exec --no-startup-id pamac-tray
+exec --no-startup-id pamac-tray
 # exec_always --no-startup-id xautolock -time 15 -locker xlock 
 # exec --no-startup-id numlockx on
 # exec_always --no-startup-id ~/.config/scripts/screenlayout.sh
@@ -307,7 +308,7 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+w exec --no-startup-id ~/.config/scripts/browser.sh
 bindsym $mod+Ctrl+Shift+A exec --no-startup-id ~/.config/scripts/toggleaudioport.sh
 bindsym $mod+Ctrl+Shift+Z exec --no-startup-id find-cursor -r5 -c#ff008a
-bindsym $mod+c exec --no-startup-id code
+# bindsym $mod+c exec --no-startup-id code
 bindsym $mod+Ctrl+T exec thunar
 bindsym Print exec ~/.config/scripts/screenshot.sh
 bindsym $mod+Print exec xfce4-screenshooter -s ~/Pictures/Screenshots/
@@ -318,6 +319,7 @@ bindsym $mod+Ctrl+p exec i3-quickterm
 # always bring up standard shell, without the menu
 bindsym $mod+Ctrl+a exec i3-quickterm shell
 # Open Application in floating mode
+bindsym $mod+c exec gcolor3
 bindsym $mod+Ctrl+c exec gnome-characters
 
 
@@ -337,7 +339,7 @@ for_window [class="Dispatch-Plus"] floating enable
 for_window [class="dispatch-plus-client"] floating enable
 for_window [instance="joplin"]  move scratchpad; [instance="joplin"] scratchpad show; resize set 3200 1900; move position center
 for_window [class="org.gnome.Characters"] floating enable
-
+for_window [class="Nl.hjdskes.gcolor3"] floating enable
 for_window [class="kitty"] border pixel 0 
 
 force_display_urgency_hint 500 ms
@@ -353,7 +355,6 @@ assign [class="Code"] $ws2
 for_window [window_role="GtkFileChooserDialog"] move to workspace current, focus
 for_window [class="Code" window_type="dialog"] move to workspace current, focus
 for_window [class="Unity"] move to workspace $ws10, no_focus
-
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
