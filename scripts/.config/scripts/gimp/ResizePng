@@ -1,0 +1,28 @@
+
+> (define (batch-resize-export-png pattern output-folder max-width max-height)
+  (let* (
+         (filelist (cadr (file-glob pattern 1))))
+    (while (not (null? filelist))
+      (let* (
+             (filename (car filelist))
+             (image (car (gimp-file-load RUN-NONINTERACTIVE filename filename)))
+             (drawable (car (gimp-image-get-active-layer image)))
+             (image-width (car (gimp-image-width image)))
+             (image-height (car (gimp-image-height image)))
+             (aspect-ratio (/ (float image-width) image-height))
+             (new-width max-width)
+             (new-height max-height))
+        (if (> aspect-ratio (/ (float max-width) max-height))
+            (set! new-height (floor (/ new-width aspect-ratio)))
+            (set! new-width (floor (* new-height aspect-ratio))))
+        (let ((new-image (car (gimp-image-new new-width new-height RGB)))
+              (new-drawable (car (gimp-image-get-active-layer new-image))))
+          (gimp-edit-copy drawable)
+          (gimp-image-set-active-layer new-image new-drawable)
+          (gimp-edit-paste new-drawable TRUE)
+          (gimp-file-save RUN-NONINTERACTIVE new-image new-drawable (string-append output-folder "/" (basename filename)) ".png" (string-append output-folder "/" (basename filename)) ".png")
+          (gimp-image-delete new-image))
+        (gimp-image-delete image)
+        (set! filelist (cdr filelist))))))
+
+batch-resize-export-png#<EOF>

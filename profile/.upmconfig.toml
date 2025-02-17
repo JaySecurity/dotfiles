@@ -1,0 +1,5 @@
+[npmAuth."https://packages.furylion.net"]
+_auth = "ZnVyeWxpb246SFJwRUNrMlAyVlczYTdaSgo="
+email = "dev@furylion.net"
+alwaysAuth = true
+caFile = "/home/jason/.ssh/game.pem"

@@ -1,4 +1,3 @@
--- return {}
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -11,20 +10,26 @@ return {
       ollama = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "http://127.0.0.1:11434/v1",
-        model = "nomic-embed-text:latest",
+        endpoint = "127.0.0.1:11434/v1",
+        model = "deepseek-r1:14b",
       },
-      deepseek_local = {
+      deepseek = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "http://127.0.0.1:11434/v1",
+        endpoint = "127.0.0.1:11434/v1",
         model = "deepseek-coder-v2:latest",
       },
-      llama3_local = {
+      qwen = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "http://127.0.0.1:11434/v1",
-        model = "llama3:8b",
+        endpoint = "127.0.0.1:11434/v1",
+        model = "qwen1.5-coder",
+      },
+      llama3 = {
+        __inherited_from = "openai",
+        api_key_name = "",
+        endpoint = "127.0.0.1:11434/v1",
+        model = "llama3:latest",
       },
     },
   },

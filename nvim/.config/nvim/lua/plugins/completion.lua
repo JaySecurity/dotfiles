@@ -25,27 +25,25 @@ return {
     },
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lua",
+    "onsails/lspkind-nvim",
     {
       "windwp/nvim-autopairs",
       event = "InsertEnter",
       config = true,
       opts = {
         check_ts = true,
-        enable_check_bracket_line = false,
+        enable_check_bracket_line = true,
       },
+      -- use opts = {} for passing setup options
+      -- this is equivalent to setup({}) function
     },
-    "onsails/lspkind-nvim",
     -- { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
   },
   config = function()
     local cmp = require("cmp")
     local lsp_kind = require("lspkind")
     local luasnip = require("luasnip")
-    luasnip.config.setup({
-      history = true,
-      updateevents = "TextChanged,TextChangedI",
-      override_builtin = true,
-    })
+    luasnip.config.setup({})
     lsp_kind.init()
     ---@diagnostic disable-next-line
     cmp.setup({
@@ -144,6 +142,14 @@ return {
         { name = "vim-dadbod-completion", group_index = 1 },
         { name = "path", group_index = 2 },
         { name = "buffer", keyword_length = 2, max_item_count = 5, group_index = 2 },
+      },
+      filetype = {
+        oil = {
+          sources = {
+            { name = "buffer" },
+            { name = "path" },
+          },
+        },
       },
     })
 

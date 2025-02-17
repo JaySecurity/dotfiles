@@ -10,6 +10,25 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+vim.api.nvim_create_user_command("PreviewMD", function()
+  local file = vim.fn.expand("%:p") -- Get full path of current buffer
+  if file == "" then
+    print("No file found")
+    return
+  end
+  vim.fn.system("tmux split-window -h 'glow -p " .. file .. "'")
+end, {})
+
+-- vim.api.nvim_create_user_command("Help", function(opts)
+--   -- Insert your custom help command logic here
+--   if opts.args == "" then
+--     opts.args = "help"
+--   end
+--   vim.print(opts)
+--   vim.cmd({ cmd = "help", args = { opts.args } })
+-- end, { bang = true, nargs = "*" })
+--
+-- vim.cmd(":command! Help help")
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   desc = 'Disable completions in Telescope Prompts',
 --   group = vim.api.nvim_create_augroup("telescope-prevent-completion", {clear = false})

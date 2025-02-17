@@ -20,12 +20,17 @@ end
 
 local opts = { noremap = true, silent = true }
 
+-- Command Mode
+vim.api.nvim_set_keymap("c", "<C-j>", "<C-n>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("c", "<C-k>", "<C-p>", { noremap = true, silent = true })
+
 -- Normal Mode
 
 -- Toggles
 vim.keymap.set("n", "<Leader>tr", vim.fn.ToggleRealativeNumbers, { desc = "[T]oggle [R]elative Numbers" })
 vim.keymap.set("n", "<Leader>tq", toggle_quickfix, { desc = "[T]oggle [Q]uickfix Window" })
-vim.keymap.set("n", "<Leader>tt", "<CMD>Floaterminal<CR>", { desc = "[T]oggle [T]erminal" })
+vim.keymap.set("n", "<Leader>tt", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
+vim.keymap.set({ "n", "t", "i" }, "<C-`>", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "<Leader>te", "<CMD>Neotree toggle <CR>", { desc = "[T]oggle [E]xplorer" })
 vim.keymap.set("n", "<Leader>tc", "<CMD>ColorizerToggle <CR>", { desc = "[T]oggle [C]olorizer" })
 vim.keymap.set("n", "<Leader>tC", "<CMD>CloakToggle <CR>", { desc = "[T]oggle [C]loak" })
@@ -34,6 +39,7 @@ vim.keymap.set("n", "<Leader>tC", "<CMD>CloakToggle <CR>", { desc = "[T]oggle [C
 vim.keymap.set("n", "<Leader>la", "<CMD>Alpha<CR>", { desc = "[L]aunch [A]lpha" })
 vim.keymap.set("n", "<Leader>ll", "<CMD>Lazy<CR>", { desc = "[L]aunch [L]azy" })
 vim.keymap.set("n", "<Leader>lm", "<CMD>Mason<CR>", { desc = "[L]aunch [M]ason" })
+vim.keymap.set("n", "<Leader>lp", "<CMD>PreviewMD<CR>", { desc = "[L]aunch Markdown [P]review" })
 
 vim.keymap.set("n", "<Leader><Leader>x", "<CMD>source %<CR>", { desc = "Source File" })
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
@@ -62,9 +68,9 @@ vim.keymap.set("n", "N", "Nzz", opts)
 -- Buffer commands
 -- vim.keymap.set("n", "<Leader>bN", "<CMD>enew<CR>", { desc = "[B]uffer [N]ew" })
 vim.keymap.set("n", "<Leader>bN", NewBufVertical, { desc = "[B]uffer [N]ew Vertical" })
-vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "[B]uffer [D]elete" })
-vim.keymap.set("n", "<Tab>", "<CMD>bNext<CR>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<Leader>bd", "<CMD>Bdelete<CR>", { desc = "[B]uffer [D]elete" })
+-- vim.keymap.set("n", "<Tab>", "<CMD>bNext<CR>", { desc = "Next Buffer" })
+-- vim.keymap.set("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "Previous Buffer" })
 
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
@@ -101,3 +107,5 @@ vim.keymap.set("v", ">", ">gv", opts)
 
 -- vim.keymap.set("i", "jkl", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set({ "v", "i" }, "jk", "<Esc>", { desc = "Exit Insert Mode" })
+vim.keymap.set({ "i", "n", "v" }, "<C-s>", "<CMD>w<CR>", { desc = "Save File" })
+vim.keymap.set({ "i", "n", "v" }, "<C-M-s>", "<CMD>wa<CR>", { desc = "Save All Files" })
