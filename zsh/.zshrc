@@ -91,3 +91,5 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 export TIMEWARRIORDB=/home/jason/Nextcloud/timewarrior/data
+
+eval $(thefuck --alias)

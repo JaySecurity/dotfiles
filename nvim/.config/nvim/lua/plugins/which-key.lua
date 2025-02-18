@@ -64,7 +64,7 @@ return { -- Useful plugin to show you pending keybinds.
       { "<leader>b", group = "[B]uffer" },
       { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
       { "<leader>l", group = "[L]aunch" },
-      -- { '<leader>d', group = '[D]ocument' },
+      -- { "d", group = "[D]ocument" },
       { "<leader>r", group = "[R]ename" },
       { "<leader>s", group = "[S]earch" },
       { "<leader>t", group = "[T]oggle" },

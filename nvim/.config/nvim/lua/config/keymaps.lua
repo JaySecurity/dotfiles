@@ -20,6 +20,10 @@ end
 
 local opts = { noremap = true, silent = true }
 
+-- Command Mode
+vim.api.nvim_set_keymap("c", "<C-j>", "<C-n>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("c", "<C-k>", "<C-p>", { noremap = true, silent = true })
+
 -- Normal Mode
 
 -- Toggles
@@ -65,7 +69,7 @@ vim.keymap.set("n", "N", "Nzz", opts)
 -- Buffer commands
 -- vim.keymap.set("n", "<Leader>bN", "<CMD>enew<CR>", { desc = "[B]uffer [N]ew" })
 vim.keymap.set("n", "<Leader>bN", NewBufVertical, { desc = "[B]uffer [N]ew Vertical" })
-vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "[B]uffer [D]elete" })
+vim.keymap.set("n", "<Leader>bd", "<CMD>Bdelete<CR>", { desc = "[B]uffer [D]elete" })
 -- vim.keymap.set("n", "<Tab>", "<CMD>bNext<CR>", { desc = "Next Buffer" })
 -- vim.keymap.set("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "Previous Buffer" })
 

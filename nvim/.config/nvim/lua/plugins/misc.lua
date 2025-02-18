@@ -60,4 +60,9 @@ return {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {},
+    config = true,
+  },
 }
